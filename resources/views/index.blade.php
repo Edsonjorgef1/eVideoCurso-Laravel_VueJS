@@ -26,7 +26,7 @@
          <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
          <i class="fas fa-bars"></i>
          </button> &nbsp;&nbsp;
-         <a class="navbar-brand mr-1" href="index.html"><img class="img-fluid" alt="" src="img/logo.png"></a>
+         <a class="navbar-brand mr-1" href="index.html"><img class="img-fluid" alt="" src="{{ asset('assets/img/logo.png') }}"></a>
          <!-- Navbar Search -->
          <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
             <div class="input-group">
@@ -72,7 +72,7 @@
             </li>
             <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
                <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <img alt="Avatar" src="img/user.png">
+               <img alt="Avatar" src="{{ asset('assets/img/user.png') }}">
                Osahan 
                </a>
                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -156,22 +156,22 @@
                <ul>
                   <li>
                      <a href="subscriptions.html">
-                     <img class="img-fluid" alt="" src="img/s1.png"> Your Life 
+                     <img class="img-fluid" alt="" src="{{ asset('assets/img/s1.png') }}"> Your Life 
                      </a>
                   </li>
                   <li>
                      <a href="subscriptions.html">
-                     <img class="img-fluid" alt="" src="img/s2.png"> Unboxing  <span class="badge badge-warning">2</span>
+                     <img class="img-fluid" alt="" src="{{ asset('assets/img/s2.png') }}"> Unboxing  <span class="badge badge-warning">2</span>
                      </a>
                   </li>
                   <li>
                      <a href="subscriptions.html">
-                     <img class="img-fluid" alt="" src="img/s3.png"> Product / Service  
+                     <img class="img-fluid" alt="" src="{{ asset('assets/img/s3.png') }}"> Product / Service  
                      </a>
                   </li>
                   <li>
                      <a href="subscriptions.html">
-                     <img class="img-fluid" alt="" src="img/s4.png">  Gaming 
+                     <img class="img-fluid" alt="" src="{{ asset('assets/img/s4.png') }}">  Gaming 
                      </a>
                   </li>
                </ul>
@@ -215,7 +215,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s1.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s1.png') }}" alt="">
                                     <h6>Your Life</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -224,7 +224,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s2.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s2.png') }}" alt="">
                                     <h6>Unboxing Cool</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -233,7 +233,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s3.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s3.png') }}" alt="">
                                     <h6>Service Reviewing</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -242,7 +242,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s4.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s4.png') }}" alt="">
                                     <h6>Gaming <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -251,7 +251,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s5.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s5.png') }}" alt="">
                                     <h6>Technology Tutorials</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -260,7 +260,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s6.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s6.png') }}" alt="">
                                     <h6>Singing</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -269,7 +269,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s7.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s7.png') }}" alt="">
                                     <h6>Cooking</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -278,7 +278,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s8.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s8.png') }}" alt="">
                                     <h6>Traveling</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -287,7 +287,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s1.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s1.png') }}" alt="">
                                     <h6>Education</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -296,7 +296,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s2.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s2.png') }}" alt="">
                                     <h6>Noodles, Sauces & Instant Food</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -305,7 +305,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s3.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s3.png') }}" alt="">
                                     <h6>Comedy <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -314,7 +314,7 @@
                            <div class="item">
                               <div class="category-item">
                                  <a href="#">
-                                    <img class="img-fluid" src="img/s4.png" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/s4.png') }}" alt="">
                                     <h6>Lifestyle Advice</h6>
                                     <p>74,853 views</p>
                                  </a>
@@ -346,7 +346,7 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v1.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v1.png') }}" alt=""></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
@@ -366,7 +366,7 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v2.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v2.png') }}" alt=""></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
@@ -386,7 +386,7 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v3.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v3.png') }}" alt=""></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
@@ -406,7 +406,7 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v4.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v4.png') }}" alt=""></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
@@ -426,7 +426,7 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v5.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v5.png') }}" alt=""></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
@@ -446,7 +446,7 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v6.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v6.png') }}" alt=""></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
@@ -466,7 +466,7 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v7.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v7.png') }}" alt=""></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
@@ -486,7 +486,7 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v8.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v8.png') }}" alt=""></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
@@ -525,7 +525,7 @@
                      <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="channels-card">
                            <div class="channels-card-image">
-                              <a href="#"><img class="img-fluid" src="img/s1.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/s1.png') }}" alt=""></a>
                               <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
                            </div>
                            <div class="channels-card-body">
@@ -541,7 +541,7 @@
                      <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="channels-card">
                            <div class="channels-card-image">
-                              <a href="#"><img class="img-fluid" src="img/s2.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/s2.png') }}" alt=""></a>
                               <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
                            </div>
                            <div class="channels-card-body">
@@ -557,7 +557,7 @@
                      <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="channels-card">
                            <div class="channels-card-image">
-                              <a href="#"><img class="img-fluid" src="img/s3.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/s3.png') }}" alt=""></a>
                               <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-secondary btn-sm">Subscribed <strong>1.4M</strong></button></div>
                            </div>
                            <div class="channels-card-body">
@@ -573,7 +573,7 @@
                      <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="channels-card">
                            <div class="channels-card-image">
-                              <a href="#"><img class="img-fluid" src="img/s4.png" alt=""></a>
+                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/s4.png') }}" alt=""></a>
                               <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
                            </div>
                            <div class="channels-card-body">
@@ -602,10 +602,10 @@
                      </div>
                      <div class="col-lg-6 col-sm-6 text-right">
                         <div class="app">
-                           <a href="#"><img alt="" src="img/google.png"></a>
-                           <a href="#"><img alt="" src="img/apple.png"></a>
+                           <a href="#"><img alt="" src="{{ asset('assets/img/google.png') }}"></a>
+                           <a href="#"><img alt="" src="{{ asset('assets/img/apple.png') }}"></a>
                         </div>
-                     </div>
+                     </div>    
                   </div>
                </div>
             </footer>
