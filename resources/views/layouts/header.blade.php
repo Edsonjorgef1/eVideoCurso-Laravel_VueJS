@@ -53,7 +53,7 @@
                Osahan 
                </a>
                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Minha conta</a>
+                  <a class="dropdown-item" href="/account"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Minha conta</a>
                   <a class="dropdown-item" href="subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscrições</a>
                   <a class="dropdown-item" href="settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Definições</a>
                   <div class="dropdown-divider"></div>
