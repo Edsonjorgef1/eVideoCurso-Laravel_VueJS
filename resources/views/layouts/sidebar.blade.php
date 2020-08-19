@@ -1,9 +1,9 @@
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
             <li class="nav-item active">
-               <a class="nav-link" href="index.html">
+               <a class="nav-link" href="/">
                <i class="fas fa-fw fa-home"></i>
-               <span>Home</span>
+               <span>Inicio</span>
                </a>
             </li>
             <li class="nav-item">
