@@ -72,17 +72,17 @@
                      </a>
                   </li>
                   <li>
-                     <a href="subscriptions.html">
+                     <a href="/subscriptions">
                      <img class="img-fluid" alt="" src="{{ asset('assets/img/s2.png') }}"> Unboxing  <span class="badge badge-warning">2</span>
                      </a>
                   </li>
                   <li>
-                     <a href="subscriptions.html">
+                     <a href="/subscriptions">
                      <img class="img-fluid" alt="" src="{{ asset('assets/img/s3.png') }}"> Product / Service  
                      </a>
                   </li>
                   <li>
-                     <a href="subscriptions.html">
+                     <a href="/subscriptions">
                      <img class="img-fluid" alt="" src="{{ asset('assets/img/s4.png') }}">  Gaming 
                      </a>
                   </li>

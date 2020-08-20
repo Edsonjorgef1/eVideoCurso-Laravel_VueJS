@@ -67,4 +67,10 @@ class HomeController extends Controller
     {
         return view('channels');
     }
+    
+    
+        public function singleChannel()
+    {
+        return view('singleChannel');
+    }
 }
