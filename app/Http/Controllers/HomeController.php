@@ -79,5 +79,9 @@ class HomeController extends Controller
         return view('videoPage');
     }
 
-    
+
+        public function historyPage()
+    {
+        return view('historyPage');
+    }
 }
