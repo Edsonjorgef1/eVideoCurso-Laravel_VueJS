@@ -84,4 +84,12 @@ class HomeController extends Controller
     {
         return view('historyPage');
     }
+    
+        
+        public function categories()
+    {
+        return view('categories');
+    }
+
+    
 }
