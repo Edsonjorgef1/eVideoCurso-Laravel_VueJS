@@ -7,7 +7,7 @@
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="channels.html">
+               <a class="nav-link" href="/channels">
                <i class="fas fa-fw fa-users"></i>
                <span>Channels</span>
                </a>

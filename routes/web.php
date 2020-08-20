@@ -30,5 +30,6 @@ Route::get('/subscriptions', 'HomeController@subscriptions')->name('subscription
 Route::get('/settings', 'HomeController@settings')->name('settings');
 Route::get('/upload', 'HomeController@upload')->name('upload');
 Route::get('/upload-video', 'HomeController@uploadVideo')->name('uploadVideo');
+Route::get('/channels', 'HomeController@channels')->name('channels');
 
 

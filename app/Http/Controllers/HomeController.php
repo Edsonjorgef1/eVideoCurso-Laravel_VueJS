@@ -57,8 +57,14 @@ class HomeController extends Controller
     }
 
 
-            public function uploadVideo()
+        public function uploadVideo()
     {
         return view('uploadVideo');
+    }  
+    
+        
+        public function channels()
+    {
+        return view('channels');
     }
 }
