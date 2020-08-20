@@ -32,4 +32,5 @@ Route::get('/upload', 'HomeController@upload')->name('upload');
 Route::get('/upload-video', 'HomeController@uploadVideo')->name('uploadVideo');
 Route::get('/channels', 'HomeController@channels')->name('channels');
 Route::get('/single-channel', 'HomeController@singleChannel')->name('singleChannel');
+Route::get('/video-page', 'HomeController@videoPage')->name('videoPage');
 

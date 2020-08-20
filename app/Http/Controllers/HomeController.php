@@ -73,4 +73,11 @@ class HomeController extends Controller
     {
         return view('singleChannel');
     }
+
+    public function videoPage()
+    {
+        return view('videoPage');
+    }
+
+    
 }
