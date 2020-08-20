@@ -25,7 +25,7 @@
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="upload-video.html">
+               <a class="nav-link" href="/upload-video">
                <i class="fas fa-fw fa-cloud-upload-alt"></i>
                <span>Upload Video</span>
                </a>
@@ -67,7 +67,7 @@
                <h6>SUBSCRIPTIONS</h6>
                <ul>
                   <li>
-                     <a href="subscriptions.html">
+                     <a href="/subscriptions">
                      <img class="img-fluid" alt="" src="{{ asset('assets/img/s1.png') }}"> Your Life 
                      </a>
                   </li>

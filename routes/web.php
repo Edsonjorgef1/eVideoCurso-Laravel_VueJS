@@ -28,5 +28,7 @@ Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/account', 'HomeController@account')->name('account');
 Route::get('/subscriptions', 'HomeController@subscriptions')->name('subscriptions');
 Route::get('/settings', 'HomeController@settings')->name('settings');
+Route::get('/upload', 'HomeController@upload')->name('upload');
+Route::get('/upload-video', 'HomeController@uploadVideo')->name('uploadVideo');
 
 
