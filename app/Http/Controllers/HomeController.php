@@ -38,9 +38,16 @@ class HomeController extends Controller
         return view('account');
     }
 
+
     public function subscriptions()
     {
         return view('subscriptions');
+    }
+    
+
+        public function settings()
+    {
+        return view('settings');
     }
     
 }
