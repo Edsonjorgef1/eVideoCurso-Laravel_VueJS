@@ -1,64 +1,65 @@
 @extends('layouts.auth-layout')
-
+ 
 @section('content')
 <div class="container-fluid pl-0 pr-0">
             <div class="row no-gutters">
                <div class="col-md-5 p-5 bg-white full-height">
                   <div class="login-main-left">
                      <div class="text-center mb-5 login-main-left-header pt-4">
-                        <img src="img/favicon.png" class="img-fluid" alt="LOGO">
-                        <h5 class="mt-3 mb-3">Welcome to Vidoe</h5>
-                        <p>It is a long established fact that a reader <br> will be distracted by the readable.</p>
+                        <img src="{{ asset('assets/img/favicon.png') }}" class="img-fluid" alt="LOGO">
+                        <h5 class="mt-3 mb-3">Crie a sua conta</h5>
+                        <p>Plataforma de cursos e videos online <br> Assista os melhores videos gratuitamente.</p>
                      </div>
-                     <form action="#">
+                     
+ 
+                     
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
                         <div class="form-group">
-                           <label>Mobile number</label>
-                           <input type="text" class="form-control" placeholder="Enter mobile number">
+                           <label>Nome:</label>
+                           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="form-group">
-                           <label>Password</label>
-                           <input type="password" class="form-control" placeholder="Password">
+                           <label>Email:</label>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="form-group">
-                           <label>Promocode</label>
-                           <input type="text" class="form-control" placeholder="Promocode">
+                           <label>Senha:</label>
+                           <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                        <div class="form-group">
+                           <label>Confirma a Senha:</label>
+                           <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div>
                         <div class="mt-4">
-                           <button type="submit" class="btn btn-outline-primary btn-block btn-lg">Sign Up</button>
+                           <button type="submit" class="btn btn-outline-primary btn-block btn-lg">Criar conta</button>
                         </div>
                      </form>
+
+
                      <div class="text-center mt-5">
-                        <p class="light-gray">Already have an Account? <a href="login.html">Sign In</a></p>
+                        <p class="light-gray">Ja esta registado? <a href="/login">Entrar</a></p>
                      </div>
                   </div>
                </div>
-               <div class="col-md-7">
-                  <div class="login-main-right bg-white p-5 mt-5 mb-5">
-                     <div class="owl-carousel owl-carousel-login">
-                        <div class="item">
-                           <div class="carousel-login-card text-center">
-                              <img src="img/login.png" class="img-fluid" alt="LOGO">
-                              <h5 class="mt-5 mb-3">​Watch videos offline</h5>
-                              <p class="mb-4">when an unknown printer took a galley of type and scrambled<br> it to make a type specimen book. It has survived not <br>only five centuries</p>
-                           </div>
-                        </div>
-                        <div class="item">
-                           <div class="carousel-login-card text-center">
-                              <img src="img/login.png" class="img-fluid" alt="LOGO">
-                              <h5 class="mt-5 mb-3">Download videos effortlessly</h5>
-                              <p class="mb-4">when an unknown printer took a galley of type and scrambled<br> it to make a type specimen book. It has survived not <br>only five centuries</p>
-                           </div>
-                        </div>
-                        <div class="item">
-                           <div class="carousel-login-card text-center">
-                              <img src="img/login.png" class="img-fluid" alt="LOGO">
-                              <h5 class="mt-5 mb-3">Create GIFs</h5>
-                              <p class="mb-4">when an unknown printer took a galley of type and scrambled<br> it to make a type specimen book. It has survived not <br>only five centuries</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+               @include('layouts.auth-slide')
             </div>
          </div>
 @endsection
