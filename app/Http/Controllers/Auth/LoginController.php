@@ -20,6 +20,11 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    
+    // Override do metodo que mostra a view de login.
+    public function showLoginForm(){
+        return view('auth.eVCourses_auth.login');
+    }
 
     /**
      * Where to redirect users after login.
