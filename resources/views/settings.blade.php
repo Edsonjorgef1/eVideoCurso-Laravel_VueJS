@@ -10,13 +10,19 @@
                 </div>
              </div>
           </div>
+
+            @if (session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
           <form method="POST" action="{{ route('profile.update') }}">
           @csrf
              <div class="row">
                 <div class="col-sm-6">
                    <div class="form-group">
                       <label class="control-label">Nome: <span class="required">*</span></label>
-                      <input id="name"  placeholder="Insira seu nome" type="text" class="form-control border-form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
+                      <input id="name"  placeholder="Insira seu nome" type="text" class="form-control border-form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ? old('name') : auth()->user()->name }}" required autocomplete="name">
 
                      @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -28,7 +34,7 @@
                 <div class="col-sm-6">
                    <div class="form-group">
                       <label class="control-label">Telefone: <span class="required">*</span></label>
-                      <input id="telefone"  placeholder="Insira seu telefone" type="number" class="form-control border-form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone">
+                      <input id="telefone"  placeholder="Insira seu telefone" type="number" class="form-control border-form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') ? old('telefone') : auth()->user()->telefone }}" required autocomplete="telefone">
 
                      @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -42,7 +48,7 @@
                 <div class="col-sm-6">
                    <div class="form-group">
                       <label class="control-label">Email: <span class="required">*</span></label>
-                      <input class="form-control border-form-control " value="" placeholder="iamosahan@gmail.com" disabled="" type="email">
+                      <input class="form-control border-form-control " value="" placeholder="{{auth()->user()->email}}" disabled="" type="email">
                    </div>
                 </div>
                 <div class="col-sm-6">
@@ -50,11 +56,11 @@
                       <label class="control-label">Sexo: <span class="required">*</span></label>
                       <div>
                         <div class="custom-control custom-radio custom-control-inline">
-                           <input type="radio" id="gender1" name="gender" class="custom-control-input">
+                           <input type="radio" id="gender1" name="gender" value="M" {{ old('gender') === 'M' || auth()->user()->gender === 'M' ? 'checked' : '' }} class="custom-control-input">
                            <label class="custom-control-label" for="gender1">Masculino</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                           <input type="radio" id="gender2" name="gender" class="custom-control-input">
+                           <input type="radio" id="gender2" name="gender" value="F" {{ old('gender') === 'F' || auth()->user()->gender === 'F' ? 'checked' : '' }} class="custom-control-input">
                            <label class="custom-control-label" for="gender2">Feminino</label>
                         </div>
                      </div>
@@ -65,7 +71,7 @@
                 <div class="col-sm-12">
                    <div class="form-group">
                       <label class="control-label">Endereço: <span class="required">*</span></label>
-                      <textarea name="address" class="form-control border-form-control"> {{ old('address') }}</textarea>
+                      <textarea name="address" class="form-control border-form-control">{{ old('address') ? old('address') : auth()->user()->address}}</textarea>
                    </div>
                 </div>
              </div>
