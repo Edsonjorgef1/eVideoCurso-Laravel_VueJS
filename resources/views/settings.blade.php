@@ -12,9 +12,7 @@
           </div>
 
             @if (session('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
+               @include('alerts.success-message')
             @endif
           <form method="POST" action="{{ route('profile.update') }}">
           @csrf
