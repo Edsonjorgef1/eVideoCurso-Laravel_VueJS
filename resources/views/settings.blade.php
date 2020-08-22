@@ -10,18 +10,31 @@
                 </div>
              </div>
           </div>
-          <form>
+          <form method="POST" action="{{ route('profile.update') }}">
+          @csrf
              <div class="row">
                 <div class="col-sm-6">
                    <div class="form-group">
                       <label class="control-label">Nome: <span class="required">*</span></label>
-                      <input class="form-control border-form-control" value="" placeholder="Gurdeep" type="text">
+                      <input id="name"  placeholder="Insira seu nome" type="text" class="form-control border-form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
+
+                     @error('name')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                     @enderror
                    </div>
                 </div>
                 <div class="col-sm-6">
                    <div class="form-group">
                       <label class="control-label">Telefone: <span class="required">*</span></label>
-                      <input class="form-control border-form-control" value="" placeholder="123 456 7890" type="number">
+                      <input id="telefone"  placeholder="Insira seu telefone" type="number" class="form-control border-form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone">
+
+                     @error('name')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                     @enderror
                    </div>
                 </div>
              </div>
@@ -35,15 +48,15 @@
                 <div class="col-sm-6">
                    <div class="form-group">
                       <label class="control-label">Sexo: <span class="required">*</span></label>
-                      <div> 
+                      <div>
                         <div class="custom-control custom-radio custom-control-inline">
-                           <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                           <label class="custom-control-label" for="customRadioInline1">Masculino</label>
+                           <input type="radio" id="gender1" name="gender" class="custom-control-input">
+                           <label class="custom-control-label" for="gender1">Masculino</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                           <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                           <label class="custom-control-label" for="customRadioInline2">Feminino</label>
-                        </div> 
+                           <input type="radio" id="gender2" name="gender" class="custom-control-input">
+                           <label class="custom-control-label" for="gender2">Feminino</label>
+                        </div>
                      </div>
                    </div>
                 </div>
@@ -52,14 +65,14 @@
                 <div class="col-sm-12">
                    <div class="form-group">
                       <label class="control-label">Endereço: <span class="required">*</span></label>
-                      <textarea class="form-control border-form-control"></textarea>
+                      <textarea name="address" class="form-control border-form-control"> {{ old('address') }}</textarea>
                    </div>
                 </div>
              </div>
              <div class="row">
                 <div class="col-sm-12 text-right">
                    <button type="button" class="btn btn-danger border-none"> Cancelar </button>
-                   <button type="button" class="btn btn-success border-none"> Actualizar </button>
+                   <button type="submit" class="btn btn-success border-none"> Actualizar </button>
                 </div>
              </div>
           </form>

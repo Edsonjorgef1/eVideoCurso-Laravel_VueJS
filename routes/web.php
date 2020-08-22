@@ -35,6 +35,6 @@ Route::get('/single-channel', 'HomeController@singleChannel')->name('singleChann
 Route::get('/video-page', 'HomeController@videoPage')->name('videoPage');
 Route::get('/history-page', 'HomeController@historyPage')->name('historyPage');
 Route::get('/categories', 'HomeController@categories')->name('categories');
-// Route::get('/auth', function(){
-//     return view('auth.eVCourses_auth.login');
-// });
+
+
+Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
