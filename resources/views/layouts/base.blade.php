@@ -47,6 +47,7 @@
       <script src="{{ asset('assets/vendor/owl-carousel/owl.carousel.js') }}"></script>
       <!-- Custom scripts for all pages-->
       <script src="{{ asset('assets/js/custom.js') }}"></script>
+      <script src="{{ asset('js/evcourses.js') }}"></script>
    </body>
 
 </html>

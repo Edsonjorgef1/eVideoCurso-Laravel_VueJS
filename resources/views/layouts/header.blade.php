@@ -49,8 +49,13 @@
             </li>
             <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
                <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <img alt="Avatar" src="{{ asset('assets/img/user.png') }}">
-               Osahan 
+            
+               @if(auth()->user()->avatar)
+                  <img alt="Avatar" src="{{ asset('storage'. auth()->user()->avatar) }}"> 
+               @else
+               <img alt="Avatar" src="{{ asset('assets/img/user.png') }}"> 
+               @endif
+                  {{ auth()->user()->name }}
                </a>
                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                   <a class="dropdown-item" href="/account"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Minha conta</a>
