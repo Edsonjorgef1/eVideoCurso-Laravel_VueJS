@@ -14,8 +14,25 @@
             @if (session('message'))
                @include('alerts.success-message')
             @endif
-          <form method="POST" action="{{ route('profile.update') }}">
+          <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
           @csrf
+          <div class="row">
+                <div class="col-sm-6">
+                  <img class="rounded-circle avatar-image" alt="" src="{{ asset('assets/img/s1.png') }}">
+                </div>
+                <div class="col-sm-12 mt-4">
+                   <div class="form-group">
+                      <label class="control-label">Carregar a foto de perfil: <span class="required">*</span></label>
+                      <input type="file" enctype="multipart/form-data" class="form-control avatar-input border-form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') ? old('avatar') : auth()->user()->avatar }}">
+
+                     @error('avatar')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                     @enderror
+                   </div>
+                </div>
+             </div>
              <div class="row">
                 <div class="col-sm-6">
                    <div class="form-group">
