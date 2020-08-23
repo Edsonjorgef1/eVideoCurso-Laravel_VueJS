@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/', 'HomeController@index')->name('index')->middleware('verified');
 Route::get('/account', 'HomeController@account')->name('account');
 Route::get('/subscriptions', 'HomeController@subscriptions')->name('subscriptions');
 Route::get('/settings', 'HomeController@settings')->name('settings');
