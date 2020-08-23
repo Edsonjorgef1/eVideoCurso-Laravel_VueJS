@@ -18,7 +18,12 @@
           @csrf
           <div class="row">
                 <div class="col-sm-6">
-                  <img class="rounded-circle avatar-image" alt="" src="{{ asset('assets/img/s1.png') }}">
+                  <!-- <img class="rounded-circle avatar-image" alt="" src="{{ asset('storage'. auth()->user()->avatar) }}" style="heigh:130px; width: 130px"> -->
+                  @if(auth()->user()->avatar)
+                  <img class="rounded-circle avatar-image" alt="Avatar" src="{{ asset('storage'. auth()->user()->avatar) }}" style="heigh:130px; width: 130px"> 
+                  @else
+                  <img class="rounded-circle avatar-image" alt="Avatar" src="{{ asset('assets/img/user.png') }}" style="heigh:130px; width: 130px"> 
+                  @endif
                 </div>
                 <div class="col-sm-12 mt-4">
                    <div class="form-group">
