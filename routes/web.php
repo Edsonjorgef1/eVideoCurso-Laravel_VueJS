@@ -34,7 +34,9 @@ Route::get('/channels', 'HomeController@channels')->name('channels');
 Route::get('/single-channel', 'HomeController@singleChannel')->name('singleChannel');
 Route::get('/video-page', 'HomeController@videoPage')->name('videoPage');
 Route::get('/history-page', 'HomeController@historyPage')->name('historyPage');
-Route::get('/categories', 'HomeController@categories')->name('categories');
+// Route::get('/categories', 'HomeController@categories')->name('categories');
 
+// Novas funcionalidades
+Route::resource('/categories', 'CategoryController');
 
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
