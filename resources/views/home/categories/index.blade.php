@@ -3,7 +3,8 @@
 @section('content')
 <div id="content-wrapper">
             <div class="container-fluid">  <!-- TODO: Adicionar um style="min-heigh:850px" -->
-                  <div class="row">
+            <div class="video-block section-padding">
+               <div class="row">
                      <div class="col-md-12">
                         <div class="main-title">
                            <div class="btn-group float-right right-action">
@@ -24,11 +25,17 @@
                      </div>
                      @foreach($categories as $category)
                      <div class="col-xl-3 col-sm-6 mb-3">
-                     
+
+                     @if($category->user_id === auth()->id())
+                     <a href="/categories/{{ $category->id }}/edit" style="position: absolute; right: 30px">
+                              Editar <i class="fa fa-edit" aria-hidden="true"></i>
+                            </a>
+                     @endif
                         <div class="category-item mt-0 mb-0">
                            <a href="shop.html">
                               <img class="img-fluid" src="{{ asset('assets/img/s1.png') }}" alt="">
                               <h6>{{$category->name}} 
+                                 
                                  @if($category->user_id === auth()->id())
                               <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span>
                                  @endif

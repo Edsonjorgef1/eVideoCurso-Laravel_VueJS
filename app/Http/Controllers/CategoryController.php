@@ -110,7 +110,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // dd($category->description);
+        return view('home.categories.edit', compact('category') );
     }
 
     /**
@@ -122,7 +123,23 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // dd($category, $request->all());
+        $validatedData = $request->validate([
+            'name' => 'required|min:2|max:50',
+            'description' => 'nullable|min:5',
+        ]);
+
+        $category = $this->handleImageUpload($request, $category);
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+        // $category->user_id = auth()->id();
+
+        $category->save();
+
+        // dd($request->all(), $user);
+
+        return redirect()->back()->with(['message' => 'Categoria ('.$category->id.') actualizada com sucesso']);
     }
 
     /**
