@@ -31,12 +31,16 @@
 
                      @if($category->user_id === auth()->id())
                      <a href="/categories/{{ $category->id }}/edit" style="position: absolute; right: 30px">
-                              Editar <i class="fa fa-edit" aria-hidden="true"></i>
+                              <i class="fa fa-edit" aria-hidden="true"></i>
                             </a>
                      @endif
                         <div class="category-item mt-0 mb-0">
                            <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s1.png') }}" alt="">
+                           @if($category->image !== 'assets/img/s2.png')
+                              <img class="img-fluid" src="{{ asset('storage'. $category->image) }}" style="heigh:130px; width: 130px">
+                           @else
+                              <img class="img-fluid" src="{{ asset('assets/img/s2.png') }}" style="heigh:130px; width: 130px">
+                           @endif
                               <h6>{{$category->name}} 
                                  
                                  @if($category->user_id === auth()->id())
