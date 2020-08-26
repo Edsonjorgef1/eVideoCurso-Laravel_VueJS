@@ -2,8 +2,7 @@
 
 @section('content')
 <div id="content-wrapper">
-            <div class="container-fluid">
-               <div class="video-block section-padding">
+            <div class="container-fluid">  <!-- TODO: Adicionar um style="min-heigh:850px" -->
                   <div class="row">
                      <div class="col-md-12">
                         <div class="main-title">
@@ -23,115 +22,26 @@
                            <h6>Categories</h6>
                         </div>
                      </div>
+                     @foreach($categories as $category)
                      <div class="col-xl-3 col-sm-6 mb-3">
+                     
                         <div class="category-item mt-0 mb-0">
                            <a href="shop.html">
                               <img class="img-fluid" src="{{ asset('assets/img/s1.png') }}" alt="">
-                              <h6>Your Life <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-                              <p>74,853 views</p>
+                              <h6>{{$category->name}} 
+                                 @if($category->user_id === auth()->id())
+                              <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span>
+                                 @endif
+                              </h6> 
+                              <p>0 views</p>
                            </a>
                         </div>
                      </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s2.png') }}" alt="">
-                              <h6>Unboxing Cool <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s3.png') }}" alt="">
-                              <h6>Service Reviewing</h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s4.png') }}" alt="">
-                              <h6>Gaming <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s5.png') }}" alt="">
-                              <h6>Technology Tutorials</h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s6.png') }}" alt="">
-                              <h6>Singing</h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s7.png') }}" alt="">
-                              <h6>Cooking</h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s8.png') }}" alt="">
-                              <h6>Traveling</h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s1.png') }}" alt="">
-                              <h6>Education</h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s2.png') }}" alt="">
-                              <h6>Noodles, Sauces & Instant Food</h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s3.png') }}" alt="">
-                              <h6>Comedy <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
-                              <img class="img-fluid" src="{{ asset('assets/img/s4.png') }}" alt="">
-                              <h6>Lifestyle Advice</h6>
-                              <p>74,853 views</p>
-                           </a>
-                        </div>
-                     </div>
+                     @endforeach
+
                   </div>
+
+                  @if(count($categories) >= 10)
                   <nav aria-label="Page navigation example">
                      <ul class="pagination justify-content-center pagination-sm mb-0">
                         <li class="page-item disabled">
@@ -145,6 +55,7 @@
                         </li>
                      </ul>
                   </nav>
+                  @endif
                </div>
             </div>
             <!-- /.container-fluid -->

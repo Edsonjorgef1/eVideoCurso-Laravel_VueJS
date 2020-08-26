@@ -37,7 +37,7 @@
                 <div class="col-sm-6">
                    <div class="form-group">
                       <label class="control-label">Nome da categoria: <span class="required">*</span></label>
-                      <input id="name"  placeholder="Insira seu nome" type="text" class="form-control border-form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ? old('name') : '' }}" required autocomplete="name">
+                      <input id="name"  placeholder="Insira o nome da categoria" type="text" class="form-control border-form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ? old('name') : '' }}" required autocomplete="name">
 
                      @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -57,7 +57,8 @@
              </div>
              <div class="row">
                 <div class="col-sm-12 text-right">
-                   <button type="button" class="btn btn-danger border-none"> Cancelar </button>
+                   <a href="/categories" class="btn btn-primary border-none"> Voltar </a>
+                   <a href="/categories/create" class="btn btn-danger border-none"> Cancelar </a>
                    <button type="submit" class="btn btn-success border-none"> Adicionar </button>
                 </div>
              </div>
