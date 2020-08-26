@@ -150,6 +150,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $message = 'Categoria '.$category->name.' deletada com sucesso';
+
+        $category->delete();
+
+        return redirect()->to('/categories')->with(['message' => $message]);
     }
 }

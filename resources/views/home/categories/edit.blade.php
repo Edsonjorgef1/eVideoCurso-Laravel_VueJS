@@ -58,7 +58,11 @@
                 </div>
              </div>
              <div class="row">
-                <div class="col-sm-12 text-right">
+             <div class="col-sm-6 text-right">
+             <a href="#" class="btn btn-primary border-none" data-toggle="modal" data-target="#deleteCategoryModal{{ $category->id }}">
+                   <i class="fa fa-trash"> </i> Apagar </a>
+                </div>
+                <div class="col-sm-6 text-left">
                    <a href="/categories" class="btn btn-primary border-none"> Voltar </a>
                    <a href="/categories/create" class="btn btn-danger border-none"> Cancelar </a>
                    <button type="submit" class="btn btn-success border-none"> Actualizar </button>
@@ -68,6 +72,7 @@
        </div>
        <!-- /.container-fluid -->           <!-- Sticky Footer -->
             @include('layouts.footer')
+            @include('dialogs.confirm-delete-category-dialog', $category)
          </div>
          <!-- /.content-wrapper -->
 @endsection
