@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Traits\UploadFiles;
+use Storage;
 
 class CategoryController extends Controller
 {
+
+    use UploadFiles;
     /**
      * Display a listing of the resource.
      *
@@ -35,9 +40,56 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+
+        $validatedData = $request->validate([
+            'name' => 'required|min:2|max:50',
+            'description' => 'nullable|min:5',
+        ]);
+
+        $category = new Category();
+
+        $category = $this->handleImageUpload($request, $category);
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->user_id = auth()->id();
+
+        $category->save();
+
+        // dd($request->all(), $user);
+
+        return redirect()->back()->with(['message' => 'Categoria adicionada com sucesso']);
+
     }
 
+    private function handleImageUpload(Request $request, Category $category){
+
+        // Check if a profile image has been uploaded
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            // Define folder path
+            $folder = '/uploads/categories/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadImage($image, $folder, 'public', $name);
+
+
+            // // Apagar a imagem que estava associada ao usuario anteriormente
+            if($category->image){
+                $this->deleteImage($folder, 'public', explode('/', $category->image)[3]);
+            }
+            
+            // Set user profile image path in database to filePath
+            $category->image = $filePath;
+        }
+
+        return $category;
+    }
     /**
      * Display the specified resource.
      *
