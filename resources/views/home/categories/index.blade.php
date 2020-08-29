@@ -35,7 +35,7 @@
                             </a>
                      @endif
                         <div class="category-item mt-0 mb-0">
-                           <a href="shop.html">
+                           <a href="javascript:;">
                            @if($category->image !== 'assets/img/s2.png')
                               <img class="img-fluid" src="{{ asset('storage'. $category->image) }}" style="heigh:130px; width: 130px">
                            @else

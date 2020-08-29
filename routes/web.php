@@ -23,20 +23,25 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
+Route::middleware(['verified'])->group(function (){
 Route::get('/home', 'HomeController@home')->name('home');
-Route::get('/', 'HomeController@index')->name('index')->middleware('verified');
+Route::get('/', 'HomeController@index')->name('index');
 Route::get('/account', 'HomeController@account')->name('account');
 Route::get('/subscriptions', 'HomeController@subscriptions')->name('subscriptions');
 Route::get('/settings', 'HomeController@settings')->name('settings');
 Route::get('/upload', 'HomeController@upload')->name('upload');
 Route::get('/upload-video', 'HomeController@uploadVideo')->name('uploadVideo');
-Route::get('/channels', 'HomeController@channels')->name('channels');
-Route::get('/single-channel', 'HomeController@singleChannel')->name('singleChannel');
+// Route::get('/channels', 'HomeController@channels')->name('channels');
+// Route::get('/single-channel', 'HomeController@singleChannel')->name('singleChannel');
+Route::get('/channels/ID', 'HomeController@singleChannel');  //FIXME: Preciso chamar pelo controller especifico
 Route::get('/video-page', 'HomeController@videoPage')->name('videoPage');
 Route::get('/history-page', 'HomeController@historyPage')->name('historyPage');
 // Route::get('/categories', 'HomeController@categories')->name('categories');
 
-// Novas funcionalidades
+// Novas funcionalidades usando Resources
 Route::resource('/categories', 'CategoryController');
+Route::resource('/channels', 'ChannelController');
 
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+
+});
