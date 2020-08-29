@@ -36,8 +36,7 @@
                             </a>
                      @endif
                      <div class="channels-card-image">
-                      <!-- <a href="#"> -->
-                      <a href="javascript:;">
+                      <a href="/channels/{{ $channel->id }}">
                            @if($channel->logo !== 'assets/img/s4.png')
                               <img class="img-fluid" src="{{ asset('storage'. $channel->logo) }}" alt="">
                            @else

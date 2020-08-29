@@ -69,10 +69,10 @@ class HomeController extends Controller
     // }
     
     
-        public function singleChannel()
-    {
-        return view('home.channels.show');
-    }
+    //     public function singleChannel()
+    // {
+    //     return view('home.channels.show');
+    // }
 
     public function videoPage()
     {

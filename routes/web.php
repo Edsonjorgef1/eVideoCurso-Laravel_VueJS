@@ -31,14 +31,15 @@ Route::get('/subscriptions', 'HomeController@subscriptions')->name('subscription
 Route::get('/settings', 'HomeController@settings')->name('settings');
 Route::get('/upload', 'HomeController@upload')->name('upload');
 Route::get('/upload-video', 'HomeController@uploadVideo')->name('uploadVideo');
-// Route::get('/channels', 'HomeController@channels')->name('channels');
-// Route::get('/single-channel', 'HomeController@singleChannel')->name('singleChannel');
-Route::get('/channels/ID', 'HomeController@singleChannel');  //FIXME: Preciso chamar pelo controller especifico
 Route::get('/video-page', 'HomeController@videoPage')->name('videoPage');
 Route::get('/history-page', 'HomeController@historyPage')->name('historyPage');
 // Route::get('/categories', 'HomeController@categories')->name('categories');
+// Route::get('/channels', 'HomeController@channels')->name('channels');
+// Route::get('/single-channel', 'HomeController@singleChannel')->name('singleChannel');
+// Route::get('/channels/ID', 'HomeController@singleChannel');  //FIXED
 
-// Novas funcionalidades usando Resources
+
+/* Novas funcionalidades usando Resources */
 Route::resource('/categories', 'CategoryController');
 Route::resource('/channels', 'ChannelController');
 
