@@ -18,7 +18,8 @@ class ChannelController extends Controller
      */
     public function index()
     {
-        return view('home.channels.index');
+        $channels = Channel::all();
+        return view('home.channels.index', compact('channels'));
     }
 
     /**
