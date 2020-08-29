@@ -80,7 +80,7 @@ class ChannelController extends Controller
 
 
             // // Apagar a imagem que estava associada ao usuario anteriormente
-            if($channel->logo && $channel->logo !== 'assets/img/s2.pn') {
+            if($channel->logo && $channel->logo !== 'assets/img/s4.png') {
                 $this->deleteImage($folder, 'public', explode('/', $channel->logo)[3]);
             }
             

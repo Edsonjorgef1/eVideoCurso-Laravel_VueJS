@@ -21,6 +21,7 @@ class CreateChannelsTable extends Migration
             $table->string('background_image', 150)->default('assets/img/img-banner.png');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

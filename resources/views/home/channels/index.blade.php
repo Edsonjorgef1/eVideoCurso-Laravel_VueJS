@@ -25,11 +25,10 @@
                             @include('alerts.success-message')
                            @endif
                 </div>
-             </div>
+             </div> 
 
              @foreach ($channels as $channel)
              <div class="col-xl-3 col-sm-6 mb-3">
-            
                 <div class="channels-card">
                      @if($channel->user_id === auth()->id())
                      <a href="/channels/{{ $channel->id }}/edit" style="position: absolute; right: 10px; top:5px">
@@ -37,7 +36,15 @@
                             </a>
                      @endif
                      <div class="channels-card-image">
-                      <a href="#"><img class="img-fluid" src="{{ asset('assets/img/s3.png') }}" alt=""></a>
+                      <!-- <a href="#"> -->
+                      <a href="javascript:;">
+                           @if($channel->logo !== 'assets/img/s4.png')
+                              <img class="img-fluid" src="{{ asset('storage'. $channel->logo) }}" alt="">
+                           @else
+                              <img class="img-fluid" src="{{ asset('assets/img/s4.png') }}" style="heigh:130px; width: 130px">
+                           @endif
+                      
+                      </a>
                       <div class="channels-card-image-btn">
                       <button type="button" 
                       class="btn @if( $channel->user_id === auth()->id() ) 

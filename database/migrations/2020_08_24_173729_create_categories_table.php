@@ -20,6 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->string('image', 150)->default('assets/img/s2.png');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
