@@ -56,7 +56,7 @@
              <div class="row">
                 <div class="col-sm-12">
                    <div class="form-group">
-                      <label class="control-label">Descriçao da categoria: <span class="required" >*</span></label>
+                      <label class="control-label">Descrição da categoria: <span class="required" >*</span></label>
                       <textarea name="description" class="form-control border-form-control" rows="4">{{ old('description') ? old('description') : $category->description }}</textarea>
                    </div>
                 </div>

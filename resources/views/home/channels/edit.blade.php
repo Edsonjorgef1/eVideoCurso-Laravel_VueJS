@@ -6,7 +6,7 @@
           <div class="row">
              <div class="col-lg-12">
                 <div class="main-title">
-                   <h6>Editar Categoria</h6>
+                   <h6>Editar canal</h6>
                 </div>
              </div>
           </div>
@@ -14,24 +14,24 @@
             @if(session('message'))
                @include('alerts.success-message')
             @endif
-          <form method="POST" action="{{ route('categories.update', ['category' => $category->id ]) }}" enctype="multipart/form-data">
+          <form method="POST" action="{{ route('channels.update', ['channel' => $channel->id ]) }}" enctype="multipart/form-data">
           @csrf
           @method('PUT')
 
           <div class="row">
                 <div class="col-sm-6">
-                @if($category->image !== 'assets/img/s2.png')
-                  <img class="rounded-circle avatar-image" src="{{ asset('storage'. $category->image) }}" style="heigh:130px; width: 130px">
+                @if($channel->logo !== 'assets/img/s4.png')
+                  <img class="rounded-circle avatar-image" src="{{ asset('storage'. $channel->logo) }}" style="heigh:130px; width: 130px">
                 @else
-                  <img class="rounded-circle avatar-image" src="{{ asset('assets/img/s2.png') }}" style="heigh:130px; width: 130px">
+                  <img class="rounded-circle avatar-image" src="{{ asset('assets/img/s4.png') }}" style="heigh:130px; width: 130px">
                 @endif
                 </div>
                 <div class="col-sm-12 mt-4">
                    <div class="form-group">
-                      <label class="control-label">Carregar a imagem da categoria: <span class="required">*</span></label>
-                      <input type="file" enctype="multipart/form-data" class="form-control avatar-input border-form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') ? old('image') : $category->image }}">
+                      <label class="control-label">Carregar a imagem da canal: <span class="required">*</span></label>
+                      <input type="file" enctype="multipart/form-data" class="form-control avatar-input border-form-control @error('logo') is-invalid @enderror" name="logo" value="{{ old('image') ? old('logo') : $channel->logo }}">
 
-                     @error('image')
+                     @error('logo')
                         <span class="invalid-feedback" role="alert">
                            <strong>{{ $message }}</strong>
                         </span>
@@ -42,8 +42,8 @@
              <div class="row">
                 <div class="col-sm-6">
                    <div class="form-group">
-                      <label class="control-label">Nome da categoria: <span class="required">*</span></label>
-                      <input id="name"  placeholder="Insira o nome da categoria" type="text" class="form-control border-form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ? old('name') : $category->name }}" required autocomplete="name">
+                      <label class="control-label">Nome da canal: <span class="required">*</span></label>
+                      <input id="name"  placeholder="Insira o nome da canal" type="text" class="form-control border-form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ? old('name') : $channel->name }}" required autocomplete="name">
 
                      @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -56,19 +56,19 @@
              <div class="row">
                 <div class="col-sm-12">
                    <div class="form-group">
-                      <label class="control-label">Descriçao da categoria: <span class="required" >*</span></label>
-                      <textarea name="description" class="form-control border-form-control" rows="4">{{ old('description') ? old('description') : $category->description }}</textarea>
+                      <label class="control-label">Descrição da canal: <span class="required" >*</span></label>
+                      <textarea name="description" class="form-control border-form-control" rows="4">{{ old('description') ? old('description') : $channel->description }}</textarea>
                    </div>
                 </div>
              </div>
              <div class="row">
              <div class="col-sm-6 text-right">
-             <a href="#" class="btn btn-primary border-none" data-toggle="modal" data-target="#deleteCategoryModal{{ $category->id }}">
+             <a href="#" class="btn btn-primary border-none" data-toggle="modal" data-target="#deleteChannelModal{{ $channel->id }}">
                    <i class="fa fa-trash"> </i> Apagar </a>
                 </div>
                 <div class="col-sm-6 text-left">
-                   <a href="/categories" class="btn btn-primary border-none"> Voltar </a>
-                   <a href="/categories/create" class="btn btn-danger border-none"> Cancelar </a>
+                   <a href="/channels" class="btn btn-primary border-none"> Voltar </a>
+                   <a href="/channels/create" class="btn btn-danger border-none"> Cancelar </a>
                    <button type="submit" class="btn btn-success border-none"> Actualizar </button>
                 </div>
              </div>
@@ -76,7 +76,7 @@
        </div>
        <!-- /.container-fluid -->           <!-- Sticky Footer -->
             @include('layouts.footer')
-            @include('dialogs.confirm-delete-category-dialog', $category)
+            @include('dialogs.confirm-delete-channel-dialog', $channel)
          </div>
          <!-- /.content-wrapper -->
 @endsection

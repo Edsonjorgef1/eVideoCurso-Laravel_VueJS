@@ -60,7 +60,7 @@ class CategoryController extends Controller
 
         // dd($request->all(), $user);
 
-        return redirect()->back()->with(['message' => 'Categoria adicionada com sucesso']);
+        return redirect()->to('/categories')->with(['message' => 'Categoria adicionada com sucesso']); 
 
     }
 

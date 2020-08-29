@@ -21,13 +21,22 @@
                               </div>
                            </div>
                    <h6>Channels</h6>
+                   @if (session('message'))
+                            @include('alerts.success-message')
+                           @endif
                 </div>
              </div>
 
              @foreach ($channels as $channel)
              <div class="col-xl-3 col-sm-6 mb-3">
+            
                 <div class="channels-card">
-                   <div class="channels-card-image">
+                     @if($channel->user_id === auth()->id())
+                     <a href="/channels/{{ $channel->id }}/edit" style="position: absolute; right: 10px; top:5px">
+                              <i class="fa fa-edit" aria-hidden="true"></i>
+                            </a>
+                     @endif
+                     <div class="channels-card-image">
                       <a href="#"><img class="img-fluid" src="{{ asset('assets/img/s3.png') }}" alt=""></a>
                       <div class="channels-card-image-btn">
                       <button type="button" 
@@ -51,7 +60,7 @@
                 </div>
              </div>
              @endforeach
-             
+
           </div>
           <nav aria-label="Page navigation example">
              <ul class="pagination justify-content-center pagination-sm mb-4">

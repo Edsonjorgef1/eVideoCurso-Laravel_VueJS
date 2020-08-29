@@ -59,7 +59,7 @@ class ChannelController extends Controller
 
         // dd($request->all(), $user);
 
-        return redirect()->back()->with(['message' => 'Categoria adicionada com sucesso']);
+        return redirect()->to('/channels')->with(['message' => 'Canal adicionado com sucesso']);
 
     }
 
@@ -110,7 +110,8 @@ class ChannelController extends Controller
      */
     public function edit(Channel $channel)
     {
-        //
+        // dd($channel->description);
+        return view('home.channels.edit', ['channel' => $channel ] );
     }
 
     /**
@@ -122,7 +123,23 @@ class ChannelController extends Controller
      */
     public function update(Request $request, Channel $channel)
     {
-        //
+        // dd($channel, $request->all());
+        $validatedData = $request->validate([
+            'name' => 'required|min:2|max:50',
+            'description' => 'nullable|min:5',
+        ]);
+
+        $channel = $this->handleImageUpload($request, $channel);
+
+        $channel->name = $request->name;
+        $channel->description = $request->description;
+        // $channel->user_id = auth()->id();
+
+        $channel->save();
+
+        // dd($request->all(), $user);
+
+        return redirect()->back()->with(['message' => 'Canal actualizado com sucesso']);
     }
 
     /**
@@ -133,6 +150,11 @@ class ChannelController extends Controller
      */
     public function destroy(Channel $channel)
     {
-        //
+        $message = 'Canal deletado com sucesso';
+
+
+        $channel->delete();
+
+        return redirect()->to('/channels')->with(['message' => $message]);
     }
 }

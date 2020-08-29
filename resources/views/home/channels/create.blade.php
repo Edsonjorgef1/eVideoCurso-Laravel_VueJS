@@ -67,7 +67,7 @@
              <div class="row">
                 <div class="col-sm-12">
                    <div class="form-group">
-                      <label class="control-label">Descriçao do canal: <span class="required" >*</span></label>
+                      <label class="control-label">Descrição do canal: <span class="required" >*</span></label>
                       <textarea name="description" class="form-control border-form-control" rows="4">{{ old('description') ? old('description') : ''}}</textarea>
                    </div>
                 </div>
