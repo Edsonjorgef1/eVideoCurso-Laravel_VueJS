@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Channel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Traits\UploadFiles;
+use Storage;
 
 class ChannelController extends Controller
 {
+    use UploadFiles;
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +28,7 @@ class ChannelController extends Controller
      */
     public function create()
     {
-        //
+        return view('home.channels.create');
     }
 
     /**
@@ -35,7 +39,55 @@ class ChannelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        $validatedData = $request->validate([
+            'name' => 'required|min:2|max:50',
+            'description' => 'nullable|min:5',
+        ]);
+
+        $channel = new Channel();
+
+        $channel = $this->handleImageUpload($request, $channel);
+
+        $channel->name = $request->name;
+        $channel->description = $request->description;
+        $channel->user_id = auth()->id();
+
+        $channel->save();
+
+        // dd($request->all(), $user);
+
+        return redirect()->back()->with(['message' => 'Categoria adicionada com sucesso']);
+
+    }
+
+    private function handleImageUpload(Request $request, Channel $channel){
+
+        // Check if a profile image has been uploaded
+        if ($request->has('logo')) {
+            // Get image file
+            $image = $request->file('logo');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            // Define folder path
+            $folder = '/uploads/channels/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadImage($image, $folder, 'public', $name);
+
+
+            // // Apagar a imagem que estava associada ao usuario anteriormente
+            if($channel->logo && $channel->logo !== 'assets/img/s2.pn') {
+                $this->deleteImage($folder, 'public', explode('/', $channel->logo)[3]);
+            }
+            
+            // Set user profile image path in database to filePath
+            $channel->logo = $filePath;
+        }
+
+        return $channel;
     }
 
     /**
