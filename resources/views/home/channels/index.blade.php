@@ -40,7 +40,7 @@
                            @if($channel->logo !== 'assets/img/s4.png')
                               <img class="img-fluid" src="{{ asset('storage'. $channel->logo) }}" alt="">
                            @else
-                              <img class="img-fluid" src="{{ asset('assets/img/s4.png') }}" style="heigh:130px; width: 130px">
+                              <img class="img-fluid" src="{{ asset('assets/img/s4.png') }}" alt="">
                            @endif
                       
                       </a>
@@ -53,7 +53,8 @@
                    </div>
                    <div class="channels-card-body">
                       <div class="channels-title">
-                         <a href="#">{{ $channel->name }} 
+                      <a href="/channels/{{ $channel->id }}">
+                         {{ $channel->name }} 
                          
                         @if($channel->user_id === auth()->id())
                            <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle"></i></span></a>

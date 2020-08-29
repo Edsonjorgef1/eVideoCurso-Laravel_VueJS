@@ -97,9 +97,9 @@ class ChannelController extends Controller
      * @param  \App\Channel  $channel
      * @return \Illuminate\Http\Response
      */
-    public function show(Channel $channel)
+    public function show($id)
     {
-        return view('home.channels.show');
+        return view('home.channels.show', ['channel' => Channel::find($id)]);
     }
 
     /**

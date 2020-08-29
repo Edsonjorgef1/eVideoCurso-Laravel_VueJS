@@ -5,7 +5,12 @@
             <div class="single-channel-image">
                <img class="img-fluid" alt="" src="{{ asset('assets/img/channel-banner.png') }}">
                <div class="channel-profile">
-                  <img class="channel-profile-img" alt="" src="{{ asset('assets/img/s2.png') }}">
+                  <!-- <img class="channel-profile-img" alt="" src="{{ asset('assets/img/s2.png') }}"> -->
+                  @if($channel->logo !== 'assets/img/s4.png')
+                              <img class="channel-profile-img" src="{{ asset('storage'. $channel->logo) }}" alt="">
+                           @else
+                              <img class="channel-profile-img" src="{{ asset('assets/img/s4.png') }}" alt="">
+                           @endif
                   <div class="social hidden-xs">
                      Social &nbsp;
                      <a class="fb" href="#">Facebook</a>
