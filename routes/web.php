@@ -41,6 +41,7 @@ Route::get('/history-page', 'HomeController@historyPage')->name('historyPage');
 
 /* Novas funcionalidades usando Resources */
 Route::resource('/categories', 'CategoryController');
+Route::resource('/courses', 'CourseController');
 Route::resource('/channels', 'ChannelController');
 
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
