@@ -105,146 +105,16 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="row category-checkbox">
+                           <div class="row category-checkbox ml-2">
                               <!-- checkbox 1col -->
-                              <div class="col-lg-2 col-xs-6 col-4">
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Abaft</label>
+                              @foreach($categories as $category)
+                              <!-- <div class="col-12"> -->
+                                 <div class="col-lg-2 col-sm-6 col-4 custom-control-inline custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{ $category->id }}" name="category_id" value="{{ $category->id }}">
+                                    <label class="custom-control-label" for="customCheck{{ $category->id }}">{{ $category->name }}</label>
                                  </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                    <label class="custom-control-label" for="customCheck2">Brick</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                    <label class="custom-control-label" for="customCheck3">Purpose</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                    <label class="custom-control-label" for="customCheck4">Shallow</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                    <label class="custom-control-label" for="customCheck5">Spray</label>
-                                 </div>
-                              </div>
-                              <!-- checkbox 2col -->
-                              <div class="col-lg-2 col-xs-6 col-4">
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck1">
-                                    <label class="custom-control-label" for="zcustomCheck1">Cemetery</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck2">
-                                    <label class="custom-control-label" for="zcustomCheck2">Trouble</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck3">
-                                    <label class="custom-control-label" for="zcustomCheck3">Pin</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck4">
-                                    <label class="custom-control-label" for="zcustomCheck4">Fall</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck5">
-                                    <label class="custom-control-label" for="zcustomCheck5">Leg</label>
-                                 </div>
-                              </div>
-                              <!-- checkbox 3col -->
-                              <div class="col-lg-2 col-xs-6 col-4">
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck1">
-                                    <label class="custom-control-label" for="czcustomCheck1">Scissors</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck2">
-                                    <label class="custom-control-label" for="czcustomCheck2">Stitch</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck3">
-                                    <label class="custom-control-label" for="czcustomCheck3">Agonizing</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck4">
-                                    <label class="custom-control-label" for="czcustomCheck4">Rescue</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck5">
-                                    <label class="custom-control-label" for="czcustomCheck5">Quiet</label>
-                                 </div>
-                              </div>
-                              <!-- checkbox 1col -->
-                              <div class="col-lg-2 col-xs-6 col-4">
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Abaft</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                    <label class="custom-control-label" for="customCheck2">Brick</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                    <label class="custom-control-label" for="customCheck3">Purpose</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                    <label class="custom-control-label" for="customCheck4">Shallow</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                    <label class="custom-control-label" for="customCheck5">Spray</label>
-                                 </div>
-                              </div>
-                              <!-- checkbox 2col -->
-                              <div class="col-lg-2 col-xs-6 col-4">
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck1">
-                                    <label class="custom-control-label" for="zcustomCheck1">Cemetery</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck2">
-                                    <label class="custom-control-label" for="zcustomCheck2">Trouble</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck3">
-                                    <label class="custom-control-label" for="zcustomCheck3">Pin</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck4">
-                                    <label class="custom-control-label" for="zcustomCheck4">Fall</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="zcustomCheck5">
-                                    <label class="custom-control-label" for="zcustomCheck5">Leg</label>
-                                 </div>
-                              </div>
-                              <!-- checkbox 3col -->
-                              <div class="col-lg-2 col-xs-6 col-4">
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck1">
-                                    <label class="custom-control-label" for="czcustomCheck1">Vessel</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck2">
-                                    <label class="custom-control-label" for="czcustomCheck2">Stitch</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck3">
-                                    <label class="custom-control-label" for="czcustomCheck3">Agonizing</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck4">
-                                    <label class="custom-control-label" for="czcustomCheck4">Rescue</label>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="czcustomCheck5">
-                                    <label class="custom-control-label" for="czcustomCheck5">Quiet</label>
-                                 </div>
-                              </div>
-                           </div>
+                              <!-- </div> -->
+                              @endforeach
                         </div>
 
                         <input type="hidden" name="user_id" value="{{ auth()->id() }}">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Category;
 use Illuminate\Http\Request;
  
 class CourseController extends Controller
@@ -24,7 +25,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('home.courses.create');
+        $categories = Category::all();
+        return view('home.courses.create', compact('categories'));
     }
 
     /**
@@ -35,7 +37,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $course = Course::create($request->all());
 
         $course->save();
