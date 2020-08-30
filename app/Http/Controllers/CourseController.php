@@ -14,7 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        dd("Página de Cursos");
+        return view('home.courses.index');
     }
 
     /**
