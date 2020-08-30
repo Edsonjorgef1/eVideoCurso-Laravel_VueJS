@@ -20,7 +20,9 @@
                         </div>
                   </div>
                </div>
-               <hr>
+               <!-- @if (session('message'))
+                @include('alerts.success-message')
+               @endif -->
                <form action="{{ route('courses.store') }}" method="POST">
                   @csrf
                   <div class="row">
@@ -61,8 +63,8 @@
                               </div>
                               <div class="col-lg-3">
                                  <div class="form-group">
-                                    <label for="price">Duração do Curso:</label>
-                                    <input type="text" placeholder="1 semana" id="price" name="price" value="{{ old('price') ? old('price') : '' }}" class="form-control">
+                                    <label for="duration">Duração do Curso:</label>
+                                    <input type="text" placeholder="1 semana" id="duration" name="duration" value="{{ old('duration') ? old('duration') : '' }}" class="form-control">
                                  </div>
                               </div>
                               <div class="col-lg-3">

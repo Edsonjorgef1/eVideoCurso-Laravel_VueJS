@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Traits\UploadFiles;
+use Storage;
  
 class CourseController extends Controller
 {
+
+    use UploadFiles;
     /**
      * Display a listing of the resource.
      *
@@ -37,10 +42,61 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        $course = Course::create($request->all());
+        $validatedData = $request->validate([
+            'title' => 'required|min:2|max:50',
+            'user_id' => 'required',
+            'description' => 'nullable|min:5',
+        ]);
 
-        $course->save();
+        // dd($request->all());
+        $course = Course::create($request->only(['title', 
+            'description', 
+            'objectives', 
+            'price', 
+            'total_videos', 
+            'duration', 
+            'channel_id', 
+            'user_id', 
+            'category_id']));
+        
+        if ($course = $this->handleImageUpload($request, $course)){
+                $course->save();
+        }
+
+        return redirect()->to('/courses')->with(['message' => 'Curso adicionado com sucesso']); 
+    }
+
+    private function handleImageUpload(Request $request, Course $course){
+
+        // Check if a profile image has been uploaded
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            // Define folder path
+            $folder = '/uploads/categories/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadImage($image, $folder, 'public', $name);
+
+
+            // // Apagar a imagem que estava associada ao usuario anteriormente
+            if($course->image) {
+                $this->deleteImage($folder, 'public', explode('/', $course->image)[3]);
+            }
+            
+            // Set user profile image path in database to filePath
+            $course->image = $filePath;
+
+            return $course;
+
+        } else{
+            return null;
+        }
+
+
     }
 
     /**

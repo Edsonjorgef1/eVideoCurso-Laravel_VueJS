@@ -81,7 +81,7 @@ class CategoryController extends Controller
 
 
             // // Apagar a imagem que estava associada ao usuario anteriormente
-            if($category->image && $category->image !== 'assets/img/s2.pn') {
+            if($category->image && $category->image !== 'assets/img/s2.png') {
                 $this->deleteImage($folder, 'public', explode('/', $category->image)[3]);
             }
             

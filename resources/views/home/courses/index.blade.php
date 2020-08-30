@@ -18,6 +18,10 @@
                   </div>
                </div>
 
+               @if (session('message'))
+                @include('alerts.success-message')
+               @endif
+
                <div class="video-block section-padding" style="min-height: 650px">
                   <div class="row">
                      <div class="col-md-12">
