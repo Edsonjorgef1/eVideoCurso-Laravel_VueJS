@@ -39,27 +39,27 @@
                                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
                               </div>
                            </div>
-                           <h6>Featured Videos</h6>
+                           <h6>Todos Cursos</h6>
                         </div>
                      </div>
 
-
+                     @foreach($courses as $course)
                      <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="video-card">
                            <div class="video-card-image" style="color: rgba(0,0,0, .5)!important">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
                               <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v1.png') }}" alt=""></a>
-                              <div class="time">100 vídeos</div>
+                              <div class="time">{{ $course->total_video }} vídeos</div>
                            </div>
                            <div class="video-card-body">
                               <div class="video-title">
-                                 <a href="#">Curso de Laravel + Vue.JS + Github</a>
+                                 <a href="#">{{ $course->title}}</a>
                               </div>
                               <div class="video-title">
-                                 <a href="#">750,00 MZN</a>
+                                 <a href="#">{{  $course->price }} MZN</a>
                               </div>
                               <div class="video-title">
-                                 <a href="#">Dura: 2 semanas </a>
+                                 <a href="#">Duração: {{  $course->duration }} </a>
                               </div>
                               <div class="video-page text-success">
                                  Educação  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
@@ -70,6 +70,7 @@
                            </div>
                         </div>
                      </div>
+                     @endforeach
                      
 
                   </div>
