@@ -24,9 +24,9 @@ class CreateCoursesTable extends Migration
             $table->integer('total_videos')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->unsignedBigInteger('channel_id');
+            $table->unsignedBigInteger('channel_id')->nullable();
             $table->foreign('channel_id')->references('id')->on('channels')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
