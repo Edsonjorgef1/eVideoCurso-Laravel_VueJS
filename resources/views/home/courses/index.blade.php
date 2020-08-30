@@ -42,7 +42,7 @@
 
                      <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="video-card">
-                           <div class="video-card-image">
+                           <div class="video-card-image" style="color: rgba(0,0,0, .5)!important">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
                               <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v1.png') }}" alt=""></a>
                               <div class="time">100 vídeos</div>
