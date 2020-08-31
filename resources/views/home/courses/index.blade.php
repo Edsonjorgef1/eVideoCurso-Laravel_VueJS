@@ -48,12 +48,17 @@
                         <div class="video-card">
                            <div class="video-card-image" style="color: rgba(0,0,0, .5)!important">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v1.png') }}" alt=""></a>
+                              <a href="#">
+                              
+                              <img class="img-fluid" src="{{ asset('assets/img/v1.png') }}" alt="">
+                              
+                              </a>
                               <div class="time">{{ $course->total_video }} vídeos</div>
                            </div>
                            <div class="video-card-body">
                               <div class="video-title">
                                  <a href="#">{{ $course->title}}</a>
+                                 <a class="float-right" href="/courses/{{ $course->id }}/edit"><i class="fas fa-edit"></i></a>
                               </div>
                               <div class="video-title">
                                  <a href="#">{{  $course->price }} MZN</a>

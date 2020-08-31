@@ -44,10 +44,16 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|min:2|max:50',
-            'user_id' => 'required',
+            'title' => 'required|min:5|max:100',
+            'user_id' => 'required|integer',
             'description' => 'nullable|min:5',
-        ]);
+            'objectives' => 'nullable|min:5', 
+            'price' => 'nullable|integer', 
+            'total_videos' => 'nullable|integer', 
+            'duration' => 'nullable|max:100', 
+            'channel_id' => 'nullable|integer',  
+            'category_id' => 'nullable|integer'
+                    ]);
 
         // dd($request->all());
         $course = Course::create($request->only(['title', 
@@ -119,7 +125,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        $categories = Category::all();
+        return view('home.courses.edit', compact('course','categories'));
     }
 
     /**

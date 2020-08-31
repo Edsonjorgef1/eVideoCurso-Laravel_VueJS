@@ -6,7 +6,7 @@
                <div class="row">
                   <div class="col-lg-12">
                      <div class="main-title">
-                        <h6>Adição de Cursos</h6>
+                        <h6>Actualizar Curso</h6>
                      </div>
                   </div>
                   <div class="col-lg-2 pb-1">
@@ -32,7 +32,7 @@
                               <div class="col-lg-12">
                                  <div class="form-group">
                                     <label for="title">Título do Curso:</label>
-                                    <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') ? old('title') : '' }}" placeholder="Título" class="form-control">
+                                    <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') ? old('title') : $course->title }}" placeholder="Título" class="form-control">
                                     @error('title')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
                               <div class="col-lg-12">
                                  <div class="form-group">
                                     <label for="description">Descrição:</label>
-                                    <textarea rows="3" id="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') ? old('description') : '' }}" class="form-control">Descrição</textarea>
+                                    <textarea rows="3" id="description" class="form-control @error('description') is-invalid @enderror" name="description" class="form-control">{{ old('description') ? old('description') : $course->description }}</textarea>
                                   @error('description')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
@@ -54,7 +54,7 @@
                               <div class="col-lg-12">
                                  <div class="form-group">
                                     <label for="objectives">Objectivos do curso:</label>
-                                    <textarea rows="3" id="objectives" class="form-control @error('objectives') is-invalid @enderror" name="objectives" value="{{ old('objectives') ? old('objectives') : '' }}" class="form-control">Objectivos</textarea>
+                                    <textarea rows="3" id="objectives" class="form-control @error('objectives') is-invalid @enderror" name="objectives" class="form-control">{{ old('objectives') ? old('objectives') : $course->objectives }} </textarea>
                                   @error('objectives')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
                               <div class="col-lg-3">
                                  <div class="form-group">
                                     <label for="price">Preço do Curso:</label>
-                                    <input type="text" placeholder="2500 MZN" id="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') ? old('price') : '' }}" class="form-control">
+                                    <input type="text" placeholder="2500 MZN" id="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') ? old('price') : $course->price }}" class="form-control">
                                   @error('price')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
                               <div class="col-lg-3">
                                  <div class="form-group">
                                     <label for="total_videos">Total de vídeos do Curso:</label>
-                                    <input type="text" placeholder="55 vídeos" id="total_videos" class="form-control @error('total_videos') is-invalid @enderror" name="total_videos" value="{{ old('total_videos') ? old('total_videos') : '' }}" class="form-control">
+                                    <input type="text" placeholder="55 vídeos" id="total_videos" class="form-control @error('total_videos') is-invalid @enderror" name="total_videos" value="{{ old('total_videos') ? old('total_videos') : $course->total_videos }}" class="form-control">
                                   @error('total_videos')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
                               <div class="col-lg-3">
                                  <div class="form-group">
                                     <label for="duration">Duração do Curso:</label>
-                                    <input type="text" placeholder="1 semana" id="duration" class="form-control @error('duration') is-invalid @enderror" name="duration" value="{{ old('duration') ? old('duration') : '' }}" class="form-control">
+                                    <input type="text" placeholder="1 semana" id="duration" class="form-control @error('duration') is-invalid @enderror" name="duration" value="{{ old('duration') ? old('duration') : $course->duration }}" class="form-control">
                                   @error('duration')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
@@ -100,7 +100,7 @@
                               <div class="col-lg-3">
                                  <div class="form-group">
                                     <label for="channel_id">ID do Canal:</label>
-                                    <input type="text" disabled placeholder="10" id="channel_id" class="form-control @error('channel_id') is-invalid @enderror" name="channel_id" value="{{ old('channel_id') ? old('channel_id') : '' }}" class="form-control">
+                                    <input type="text" disabled placeholder="10" id="channel_id" class="form-control @error('channel_id') is-invalid @enderror" name="channel_id" value="{{ old('channel_id') ? old('channel_id') : $course->channel_id }}" class="form-control">
                                   @error('channel_id')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
@@ -109,32 +109,6 @@
                                  </div>
                               </div>
                            </div>
-                           <!-- <div class="row">
-                              <div class="col-lg-5">
-                                 <div class="form-group">
-                                    <label for="e7">Tags (13 Tags Remaining)</label>
-                                    <input type="text" placeholder="Gaming, PS4" id="e7" class="form-control">
-                                 </div>
-                              </div>
-                              <div class="col-lg-4">
-                                 <div class="form-group">
-                                    <label for="e8">Cast (Optional)</label>
-                                    <input type="text" placeholder="Nathan Drake," id="e8" class="form-control">
-                                 </div>
-                              </div>
-                              <div class="col-lg-3">
-                                 <div class="form-group">
-                                    <label for="e9">Language in Video (Optional)</label>
-                                    <select id="e9" class="custom-select">
-                                       <option>English</option>
-                                       <option>2</option>
-                                       <option>3</option>
-                                       <option>4</option>
-                                       <option>5</option>
-                                    </select>
-                                 </div>
-                              </div>
-                           </div> -->
                            <div class="row ">
                               <div class="col-lg-12">
                                  <div class="main-title">
