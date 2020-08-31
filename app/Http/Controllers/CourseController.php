@@ -138,7 +138,34 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|min:5|max:100',
+            'user_id' => 'required|integer',
+            'description' => 'nullable|min:5',
+            'objectives' => 'nullable|min:5', 
+            'price' => 'nullable|integer', 
+            'total_videos' => 'nullable|integer', 
+            'duration' => 'nullable|max:100', 
+            'channel_id' => 'nullable|integer',  
+            'category_id' => 'nullable|integer'
+                    ]);
+
+        Course::where('id',$course->id)
+            ->update($request->only(['title', 
+                'description', 
+                'objectives', 
+                'price', 
+                'total_videos', 
+                'duration', 
+                'channel_id', 
+                'user_id', 
+                'category_id']));
+        
+        if ($course = $this->handleImageUpload($request, $course)){
+                $course->save();
+        }
+
+        return redirect()->to('/courses')->with(['message' => 'Curso actualizado com sucesso']);
     }
 
     /**
@@ -149,6 +176,10 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $message = 'Curso '.$course->title.' deletado com sucesso';
+
+        $course->delete();
+
+        return redirect()->to('/courses')->with(['message' => $message]);
     }
 }

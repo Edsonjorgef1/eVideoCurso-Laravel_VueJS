@@ -23,8 +23,9 @@
                <!-- @if (session('message'))
                 @include('alerts.success-message')
                @endif -->
-               <form action="{{ route('courses.store') }}" method="POST" role="form" enctype="multipart/form-data">
+               <form action="{{ route('courses.update', ['course' => $course->id]) }}" method="POST" role="form" enctype="multipart/form-data">
                   @csrf
+                  @method('PUT')
                   <div class="row">
                      <div class="col-lg-12">
                         <div class="osahan-form">
@@ -130,7 +131,9 @@
 
                         <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                         <div class="osahan-area text-center mt-3">   <!--    style"background: gainsboro"  -->
-                           <button class="btn btn-outline-primary">Gravar e continuar</button>
+                           <a href="#" class="btn btn-primary border-none" data-toggle="modal" data-target="#deleteCourseModal{{ $course->id }}">
+                              <i class="fa fa-trash"> </i> Apagar </a>
+                   <button class="btn btn-outline-primary">Gravar e continuar</button>
                         </div>
                         <hr>
                         <div class="terms text-center">
@@ -145,6 +148,7 @@
             <!-- Sticky Footer -->
          <!-- Sticky Footer -->
          @include('layouts.footer')
+         @include('dialogs.confirm-delete-course-dialog', $course)
          </div>
          <!-- /.content-wrapper -->
 @endsection
