@@ -10,6 +10,7 @@ class Course extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'image',
         'title', 
         'description', 
         'objectives', 

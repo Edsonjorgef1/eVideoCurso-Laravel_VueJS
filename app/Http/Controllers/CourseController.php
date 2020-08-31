@@ -66,7 +66,7 @@ class CourseController extends Controller
             'user_id', 
             'category_id']));
         
-        if ($course = $this->handleImageUpload($request, $course)){
+        if ($filePath = $this->handleImageUpload($request, $course)){
                 $course->save();
         }
 
@@ -82,12 +82,11 @@ class CourseController extends Controller
             // Make a image name based on user name and current timestamp
             $name = Str::slug($request->input('name')).'_'.time();
             // Define folder path
-            $folder = '/uploads/categories/';
+            $folder = '/uploads/courses/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             // Upload image
             $this->uploadImage($image, $folder, 'public', $name);
-
 
             // // Apagar a imagem que estava associada ao usuario anteriormente
             if($course->image) {
@@ -95,9 +94,7 @@ class CourseController extends Controller
             }
             
             // Set user profile image path in database to filePath
-            $course->image = $filePath;
-
-            return $course;
+            return $filePath;
 
         } else{
             return null;
@@ -161,8 +158,8 @@ class CourseController extends Controller
                 'user_id', 
                 'category_id']));
         
-        if ($course = $this->handleImageUpload($request, $course)){
-                $course->save();
+        if ($filePath = $this->handleImageUpload($request, $course)){
+                $course->update(['image' => $filePath]);
         }
 
         return redirect()->to('/courses')->with(['message' => 'Curso actualizado com sucesso']);

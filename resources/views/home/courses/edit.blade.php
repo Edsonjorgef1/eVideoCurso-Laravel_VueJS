@@ -3,6 +3,10 @@
 @section('content')
 <div id="content-wrapper">
             <div class="container-fluid upload-details">
+      <form action="{{ route('courses.update', ['course' => $course->id]) }}" method="POST" role="form" enctype="multipart/form-data">
+                  @csrf
+                  @method('PUT')
+
                <div class="row">
                   <div class="col-lg-12">
                      <div class="main-title">
@@ -10,7 +14,12 @@
                      </div>
                   </div>
                   <div class="col-lg-2 pb-1">
-                     <div class="imgplace"></div>
+                           @if($course->image)
+                              <img class="img-fluid" style="height: 120px; width:200px" src="{{ asset('storage'. $course->image) }}" alt="">
+                           @else
+                              <div class="imgplace"></div>
+                           @endif
+                    
                   </div>
                   <div class="col-lg-10">
                      <div class="osahan-title text-right text-danger">O curso está no Modo Rascunho (A publicação leva entre 5-15 dias):</div>
@@ -20,12 +29,10 @@
                         </div>
                   </div>
                </div>
-               <!-- @if (session('message'))
+               @if (session('message'))
                 @include('alerts.success-message')
-               @endif -->
-               <form action="{{ route('courses.update', ['course' => $course->id]) }}" method="POST" role="form" enctype="multipart/form-data">
-                  @csrf
-                  @method('PUT')
+               @endif
+               
                   <div class="row">
                      <div class="col-lg-12">
                         <div class="osahan-form">
