@@ -108,7 +108,7 @@
                               <div class="col-lg-3">
                                  <div class="form-group">
                                     <label for="channel_id">ID do Canal:</label>
-                                    <input type="text" disabled placeholder="10" id="channel_id" class="form-control @error('channel_id') is-invalid @enderror" name="channel_id" value="{{ old('channel_id') ? old('channel_id') : $course->channel_id }}" class="form-control">
+                                    <input type="text" placeholder="10" id="channel_id" class="form-control @error('channel_id') is-invalid @enderror" name="channel_id" value="{{ old('channel_id') ? old('channel_id') : $course->channel_id }}" class="form-control">
                                   @error('channel_id')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
@@ -129,7 +129,7 @@
                               @foreach($categories as $category)
                               <!-- <div class="col-12"> -->
                                  <div class="col-lg-2 col-sm-6 col-4 custom-control-inline custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck{{ $category->id }}" name="category_id" value="{{ $category->id }}">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{ $category->id }}" name="category_id" value="{{ $category->id }}" @if ($category->id === $course->category_id ) checked @endif>
                                     <label class="custom-control-label" for="customCheck{{ $category->id }}">{{ $category->name }}</label>
                                  </div>
                               <!-- </div> -->

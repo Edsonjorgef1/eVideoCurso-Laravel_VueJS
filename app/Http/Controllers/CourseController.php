@@ -51,7 +51,7 @@ class CourseController extends Controller
             'price' => 'nullable|integer', 
             'total_videos' => 'nullable|integer', 
             'duration' => 'nullable|max:100', 
-            'channel_id' => 'nullable|integer',  
+            'channel_id' => 'nullable|integer|exists:App\Channel,id',  
             'category_id' => 'nullable|integer'
                     ]);
 
