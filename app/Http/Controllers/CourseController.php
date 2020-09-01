@@ -111,7 +111,8 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        // dd($course);
+        return view('home.courses.show', compact('course'));
     }
 
     /**

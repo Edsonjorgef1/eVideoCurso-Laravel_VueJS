@@ -47,7 +47,7 @@
                      <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="video-card">
                            <div class="video-card-image" style="color: rgba(0,0,0, .5)!important">
-                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a class="play-icon" href="/courses/{{ $course->id }}"><i class="fas fa-play-circle"></i></a>
                               <a href="#">
                               @if($course->image)
                               <img class="img-fluid" style="height: 180px" src="{{ asset('storage'. $course->image) }}" alt="">
@@ -66,7 +66,7 @@
                                  <a class="float-right" href="/courses/{{ $course->id }}/edit"><i class="fas fa-edit"></i></a>
                               </div>
                               <div class="video-title">
-                                 <a href="#">{{  $course->price }} MZN</a>
+                                 <a href="/courses/{{ $course->id }}">{{  $course->price }} MZN</a>
                               </div>
                               <div class="video-title">
                                  <a href="#">Duração: {{  $course->duration }} </a>
