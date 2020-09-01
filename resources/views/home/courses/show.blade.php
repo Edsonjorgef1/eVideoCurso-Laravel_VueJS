@@ -46,23 +46,66 @@
                               <small> Publicado em 17 de Agosto de 2020 </small>
                            </div>
                            <div class="single-video-info-content box mb-3">
-                              <h6>Preço & Duração:</h6>
-                              <p> {{ $course->price }} , {{ $course->duration }} </p>
-                              <h6>Categoria :</h6>
-                              <p> Aqui eh a categoria ...  </p>
-                              <h6>Descrição :</h6>
-                              <p> {{ $course->description }} </p>
-                              <h6>Objectivos :</h6>
-                              <p> {{ $course->objectives }}</p>
-                              <h6>Tags :</h6>
-                              <p class="tags mb-0">
-                                 <span><a href="#">Uncharted 4</a></span>
-                                 <span><a href="#">Playstation 4</a></span>
-                                 <span><a href="#">Gameplay</a></span>
-                                 <span><a href="#">1080P</a></span>
-                                 <span><a href="#">ps4Share</a></span>
-                                 <span><a href="#">+ 6</a></span>
-                              </p>
+
+                           <div class="row d-flex justify-content-center mt-100 mb-100">
+    <div class="col-lg-12">
+        <div class="card p-3">
+            <div class="card-body text-center">
+                <h4 class="card-title">Apenas Comentarios</h4>
+            </div>
+            <div class="comment-widgets">
+                <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row my-3">
+                    <div class="p-2"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583336/AAA/4.jpg" alt="user" width="50" class="rounded-circle"></div>
+                    <div class="comment-text w-100">
+                        <h6 class="font-medium"> James Thomas</h6> 
+                        <span class="m-b-15 d-block"> This is awesome website. I would love to comeback again. </span>
+                        <div class="comment-footer my-2"> <span class="text-muted float-right">April 14, 2019</span> 
+                           <button type="button" class="btn btn-cyan btn-sm">Edit</button> 
+                           <button type="button" class="btn btn-danger btn-sm">Delete</button> 
+                        </div>
+                    </div>
+                </div> <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row my-3">
+                    <div class="p-2"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583319/AAA/3.jpg" alt="user" width="50" class="rounded-circle"></div>
+                    <div class="comment-text active w-100 my-2">
+                        <h6 class="font-medium">Michael Hussey</h6> 
+                        <span class="m-b-15 d-block">Thanks bbbootstrap.com for providing such useful snippets. </span>
+                        <div class="comment-footer"> 
+                           <span class="text-muted float-right">May 10, 2019</span> 
+                           <button type="button" class="btn btn-cyan btn-sm">Edit</button> 
+                           <button type="button" class="btn btn-danger btn-sm">Delete</button> 
+                        </div>
+                    </div>
+                </div> <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row my-3">
+                    <div class="p-2"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg" alt="user" width="50" class="rounded-circle"></div>
+                    <div class="comment-text w-100 my-2">
+                        <h6 class="font-medium">Johnathan Doeting</h6> 
+                        <span class="m-b-15 d-block">Great industry leaders are not the real heroes of stock market. </span>
+                        <div class="comment-footer"> 
+                           <span class="text-muted float-right">August 1, 2019</span> 
+                           <button type="button" class="btn btn-cyan btn-sm">Edit</button> 
+                           <button type="button" class="btn btn-danger btn-sm">Delete</button> 
+                        </div>
+                    </div>
+                </div> <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row my-3">
+                    <div class="p-2"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583319/AAA/3.jpg" alt="user" width="50" class="rounded-circle"></div>
+                    <div class="comment-text active w-100 my-2">
+                        <h6 class="font-medium">Michael Hussey</h6> 
+                        <span class="m-b-15 d-block">Thanks bbbootstrap.com for providing such useful snippets. </span>
+                        <div class="comment-footer"> 
+                           <span class="text-muted float-right">May 10, 2019</span> 
+                           <button type="button" class="btn btn-cyan btn-sm">Edit</button> 
+                           <button type="button" class="btn btn-danger btn-sm">Delete</button> 
+                        </div>
+                    </div>
+                </div> <!-- Comment Row -->
+            </div> <!-- Card -->
+        </div>
+    </div>
+</div>
                            </div>
                         </div>
                      </div>
