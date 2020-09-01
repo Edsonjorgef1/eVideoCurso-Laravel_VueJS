@@ -48,7 +48,9 @@
                </div>
             </li>
             <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
+            @if(Auth::check())
                <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               
                @if(auth()->user()->avatar)
                   <img alt="Avatar" src="{{ asset('storage'. auth()->user()->avatar) }}"> 
                @else
@@ -56,6 +58,7 @@
                @endif
                   {{ auth()->user()->name }}
                </a>
+            @endif
                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                   <a class="dropdown-item" href="/account"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Minha conta</a>
                   <a class="dropdown-item" href="/subscriptions"><i class="fas fa-fw fa-video"></i> &nbsp; Subscrições</a>
