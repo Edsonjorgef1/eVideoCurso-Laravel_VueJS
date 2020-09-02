@@ -6,20 +6,35 @@
                <div class="video-block section-padding">
                   <div class="row">
                      <div class="col-md-8">
+                     @if (session('message'))
+                      @include('alerts.success-message')
+                     @endif
                         <div class="single-video-left">
                            <div class="single-video">
                               
+                        <form action="{{ route('videos.store') }}" method="POST" role="form" enctype="multipart/form-data">
+                           @csrf
                            <div class="row">
-          <div class="col-md-8 mx-auto text-center pt-5 pb-5">
-             <h3><i class="fas fa-file-upload text-primary" style="font-size: 50px"></i></h3>
-             <h4 class="mt-5">Selecione os arquivos de vídeo para enviar</h4>
-             <p class="land">ou arraste e solte arquivos de vídeo</p>
-             <div class="mt-4">
-                <a class="btn btn-outline-primary" href="/upload-video">Upload Video</a>
-             </div>
-          </div>
-       </div>
+                              <div class="col-md-8 mx-auto text-center pt-5 pb-5">
+                                 <h3><i class="fas fa-file-upload text-primary" style="font-size: 50px"></i></h3>
+                                 <h4 class="mt-5">Selecione os arquivos de vídeo para fazer upload</h4>
+                                 <p class="land">ou arraste e solte arquivos de vídeo</p>
+                                 <p>
+                                    <input type="file" name="videos[]" multiple value="{{ old('videos') ? old('videos') : '' }}" class="form-control @error('videos') is-invalid @enderror"  >
+                                 </p>
+                                 @error('videos')
+                                    <span class="invalid-feedback" role="alert">
+                                       <strong>{{ $message }}</strong>
+                                    </span>
+                                 @enderror
 
+                                 <input type="hidden" name="course_id" value=" {{ $course->id }}" > 
+                                 <div class="mt-4">
+                                    <button class="btn btn-outline-primary" type="submit">Gravar os videos</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
                            </div>
                            <div class="single-video-title box mb-3">
                               <h2>

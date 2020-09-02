@@ -19,4 +19,4 @@
     @include('layouts.footer')
  </div>
  <!-- /.content-wrapper -->
- @endsection
+ @endsections
