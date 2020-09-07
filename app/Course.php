@@ -9,6 +9,8 @@ class Course extends Model
 {
     use SoftDeletes;
 
+    protected $with = ['videos'];
+
     protected $fillable = [
         'image',
         'title', 
@@ -21,4 +23,13 @@ class Course extends Model
         'user_id', 
         'category_id'
     ];
+
+    public function user(){
+        return $this->hasOne('App\User');
+    }
+
+    public function videos(){
+        return $this->hasMany('App\Video');
+    }
+
 }

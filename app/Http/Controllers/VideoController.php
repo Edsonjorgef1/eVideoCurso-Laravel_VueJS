@@ -46,20 +46,24 @@ class VideoController extends Controller
 
             foreach ($files as $file){
 
+                // Make a image name based on user name and current timestamp
+                $name = Str::random(16);
+                $videoPath = '/uploads/videos/' . $name . '.' . $file->getClientOriginalExtension();
+
+                // dd($videoPath);
                 $video = new Video();
 
                 // dd($request->course_id);                
                 $video->title       =   pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
                 $video->image_url   =   $request->image_url;
-                $video->duration    =   $request->duration;
                 $video->category_id =   $request->category_id;
                 $video->channel_id  =   $request->channel_id;
                 $video->course_id   =   $request->course_id;
                 $video->user_id     =   auth()->id();
-                $video->video_url   =   $this->handleVideoUpload($file);
+                $video->video_url   =   $this->handleVideoUpload($file, $name);
+                $video->duration    =   $this->getVideoDuration($videoPath);
 
                 $video->save();
-            
             }
 
             return redirect()->back()->with(['message' => '('. count($files). ') videos carregados com sucesso. ']); 
@@ -70,11 +74,17 @@ class VideoController extends Controller
             }
     
 }
+        // Run this on terminal: $ composer require james-heinrich/getid3
+        private function getVideoDuration ($videoPath){
+            $getID3 = new \getID3;
+            $file = $getID3->analyze('storage' . $videoPath);
+            // $duration = date('H:i:s.v', $file['playtime_seconds']);
+            $duration = date('H:i:s', $file['playtime_seconds']);
+            return $duration; 
+        }
     
-        private function handleVideoUpload($video)
+        private function handleVideoUpload($video, $name)
         {
-                // Make a image name based on user name and current timestamp
-                $name = Str::random(32);
                 // Define folder path
                 $folder = '/uploads/videos/';
                 // Make a file path where image will be stored [ folder path + file name + file extension]
