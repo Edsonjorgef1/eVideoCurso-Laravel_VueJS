@@ -165,7 +165,13 @@
                                  <div class="video-card video-card-list">
                                     <div class="video-card-image">
                                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                       <a href="#"><img class="img-fluid" src="{{ asset('assets/img/v1.png') }}" alt=""></a>
+                                       <a href="#">
+                                          @if($video->image_url)
+                                             <img class="img-fluid" src="{{ asset('storage'. $video->image_url) }}" alt="">
+                                          @else
+                                             <img class="img-fluid" src="{{ asset('assets/img/v1.png') }}" alt="">
+                                          @endif
+                                       </a>
                                        <div class="time">{{$video->duration}}</div>
                                     </div>
                                     <div class="video-card-body">
