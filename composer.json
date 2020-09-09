@@ -15,7 +15,8 @@
         "james-heinrich/getid3": "^1.9",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.1"
+        "laravel/ui": "^2.1",
+        "pbmedia/laravel-ffmpeg": "^7.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Traits\UploadVideos;
 use Storage;
+use FFMpeg;
 
 class VideoController extends Controller
 {
@@ -50,18 +51,16 @@ class VideoController extends Controller
                 $name = Str::random(16);
                 $videoPath = '/uploads/videos/' . $name . '.' . $file->getClientOriginalExtension();
 
-                // dd($videoPath);
                 $video = new Video();
-
-                // dd($request->course_id);                
+                
                 $video->title       =   pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-                $video->image_url   =   $request->image_url;
                 $video->category_id =   $request->category_id;
                 $video->channel_id  =   $request->channel_id;
                 $video->course_id   =   $request->course_id;
                 $video->user_id     =   auth()->id();
                 $video->video_url   =   $this->handleVideoUpload($file, $name);
                 $video->duration    =   $this->getVideoDuration($videoPath);
+                $video->image_url   =   $this->getVideoThumbnail($videoPath, $name);
 
                 $video->save();
             }
@@ -74,6 +73,21 @@ class VideoController extends Controller
             }
     
 }
+        // Run this on terminal: $ composer require pbmedia/laravel-ffmpeg   && then $ php artisan vendor:publish --provider="ProtoneMedia\LaravelFFMpeg\Support\ServiceProvider"
+        private function getVideoThumbnail($videoPath, $name)
+        {          
+            $videoImagePath = '/uploads/videos_image/' . $name . '.png';
+
+            FFMpeg::fromDisk('public')
+            ->open($videoPath)
+            ->getFrameFromSeconds(15)
+            ->export()
+            ->toDisk('public')
+            ->save($videoImagePath);
+
+            return $videoImagePath;
+        }
+
         // Run this on terminal: $ composer require james-heinrich/getid3
         private function getVideoDuration ($videoPath){
             $getID3 = new \getID3;
